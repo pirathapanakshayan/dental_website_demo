@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northgate Dental · Private dentist in Leeds</title>
+  <meta name="description" content="Northgate Dental in Leeds. Check-ups, hygiene, whitening and emergency appointments, with prices listed upfront.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sea: #0b3d5c;
+      --foam: #7fd3c0;
+      --sky: #eaf4f6;
+      --paper: #ffffff;
+      --alert: #c2410c;
+      --ink: #10222e;
+      --muted: #52646f;
+      --line: #d3e2e6;
+      --display: "Lexend", system-ui, sans-serif;
+      --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --wrap: 1160px;
+      --gutter: clamp(1.25rem, 4vw, 3rem);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font: 400 1.125rem/1.6 var(--body); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--sea); outline-offset: 3px; border-radius: 6px; }
+    .wrap { width: min(100% - 2 * var(--gutter), var(--wrap)); margin-inline: auto; }
+    h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+
+    .urgent { background: var(--sea); color: #fff; font-size: 1rem; }
+    .urgent .wrap { display: flex; justify-content: center; gap: .5rem; padding-block: .6rem; flex-wrap: wrap; text-align: center; }
+    .urgent a { font-weight: 600; }
+    header .wrap { display: flex; align-items: center; gap: 2rem; height: 76px; }
+    .logo { display: flex; align-items: center; gap: .6rem; font: 600 1.3rem var(--display); text-decoration: none; color: var(--sea); }
+    .logo svg { width: 28px; height: 28px; }
+    nav { display: flex; gap: 1.75rem; margin-left: auto; }
+    nav a { text-decoration: none; color: var(--muted); font-weight: 600; }
+    nav a:hover { color: var(--ink); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: .9rem 1.4rem; border-radius: 12px; background: var(--sea); color: #fff; text-decoration: none; font: 600 1rem var(--display); border: 0; cursor: pointer; }
+    .btn:hover { background: var(--ink); }
+    .btn-soft { background: var(--sky); color: var(--sea); }
+    .btn-soft:hover { background: #d6eaee; color: var(--ink); }
+    .hero .btn-soft { background: var(--paper); }
+    .logo, .btn { white-space: nowrap; }
+
+    /* Hero */
+    .hero { background: var(--sky); padding-block: clamp(3rem, 7vw, 6rem); }
+    .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .hero h1 { font-size: clamp(2.5rem, 5.5vw, 4.5rem); margin: 0 0 1.25rem; color: var(--sea); max-width: 15ch; }
+    .hero p { font-size: 1.25rem; color: var(--muted); max-width: 40ch; margin: 0 0 2rem; }
+    .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .checks { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: .5rem; }
+    .checks li { display: flex; gap: .6rem; align-items: center; font-weight: 600; }
+    .checks li::before { content: ""; width: 20px; height: 20px; flex: none; border-radius: 50%; background: var(--foam) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%230b3d5c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+    .hero .photo { aspect-ratio: 4 / 5; border-radius: 200px 200px 24px 24px; background: url("images/clinic.jpg") center / cover, linear-gradient(170deg, #bfe7de, var(--foam) 45%, #3f8f9e); }
+
+    /* First visit: line draws with scroll */
+    .section { padding-block: clamp(4rem, 9vw, 7rem); }
+    .section-head { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3.25rem); margin: 0 0 .75rem; color: var(--sea); }
+    .section-head p { margin: 0; color: var(--muted); max-width: 52ch; }
+    .journey { position: relative; display: grid; grid-template-columns: 80px 1fr; }
+    .journey svg { position: absolute; left: 0; top: 0; width: 80px; height: 100%; overflow: visible; }
+    .journey .track { stroke: var(--line); }
+    .journey .ink { stroke: var(--foam); }
+    .steps { grid-column: 2; list-style: none; margin: 0; padding: 0; }
+    .step { position: relative; padding: 0 0 clamp(3rem, 8vw, 5rem) 1rem; }
+    .step:last-child { padding-bottom: 0; }
+    .step .dot {
+      position: absolute; left: calc(-80px + 40px - 22px); top: -4px; width: 44px; height: 44px; border-radius: 50%;
+      display: grid; place-items: center; font: 600 1.1rem var(--display);
+      background: var(--paper); border: 2px solid var(--line); color: var(--muted); transition: background-color .3s, border-color .3s, color .3s;
+    }
+    .step.is-reached .dot { background: var(--sea); border-color: var(--sea); color: #fff; }
+    .step h3 { font-size: 1.6rem; margin: 0 0 .5rem; }
+    .step p { margin: 0; color: var(--muted); max-width: 50ch; }
+    .step .time { display: inline-block; margin-top: .75rem; font-weight: 600; color: var(--sea); }
+
+    /* Prices */
+    .prices { background: var(--sky); }
+    .price-table { width: 100%; border-collapse: collapse; background: var(--paper); border-radius: 16px; overflow: hidden; }
+    .price-table th, .price-table td { padding: 1.1rem 1.25rem; text-align: left; border-bottom: 1px solid var(--line); }
+    .price-table th { font: 600 1rem var(--display); background: #f4f9fa; }
+    .price-table td:last-child, .price-table th:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .price-table td small { display: block; color: var(--muted); }
+    .price-table tr:last-child td { border-bottom: 0; }
+    .plan { margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; background: var(--sea); color: #fff; padding: 1.5rem 1.75rem; border-radius: 16px; }
+    .plan p { margin: 0; max-width: 50ch; }
+    .plan strong { font: 600 1.4rem var(--display); display: block; }
+
+    /* New patient form */
+    .register .wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); }
+    form { display: grid; gap: 1.1rem; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { display: grid; gap: .35rem; }
+    label { font-weight: 600; font-size: 1rem; }
+    .hint { color: var(--muted); font-size: .95rem; font-weight: 400; }
+    input, select, textarea { font: inherit; font-size: 1rem; padding: .8rem .9rem; border-radius: 10px; border: 1.5px solid #c2d3d8; width: 100%; background: #fff; color: var(--ink); }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--sea); box-shadow: 0 0 0 3px rgba(11,61,92,.15); }
+    .error { color: #b3261e; font-size: .95rem; min-height: 1.2em; }
+    .sent { display: none; background: #e7f7f1; color: #135a46; padding: 1rem 1.25rem; border-radius: 12px; font-weight: 600; }
+    form.is-sent .sent { display: block; }
+    .contact-card { background: var(--sky); border-radius: 16px; padding: 1.5rem; margin-top: 2rem; }
+    .contact-card p { margin: .25rem 0; }
+
+    footer { background: var(--ink); color: rgba(255,255,255,.75); padding-block: 2.5rem; font-size: .95rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+    @media (max-width: 880px) {
+      nav { display: none; }
+      header .btn { margin-left: auto; padding: .65rem .9rem; font-size: .9rem; }
+      header .wrap { gap: 1rem; }
+      .logo { font-size: 1.1rem; }
+      .hero .wrap, .register .wrap { grid-template-columns: 1fr; }
+      .hero .photo { aspect-ratio: 16 / 10; border-radius: 140px 140px 20px 20px; }
+      .journey { grid-template-columns: 56px 1fr; }
+      .journey svg { width: 56px; }
+      .step .dot { left: calc(-56px + 28px - 20px); width: 40px; height: 40px; }
+      .row { grid-template-columns: 1fr; }
+      .price-table th, .price-table td { padding: .9rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .step .dot { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="urgent"><div class="wrap">In pain? Same-day emergency appointments: <a href="tel:+441130000000">0113 000 0000</a></div></div>
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#top">
+        <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M8 4c-3 0-5 2.5-5 6 0 4 2 6 3 10 .7 2.8 1.4 4 2.6 4 1.6 0 1.8-3 3-6 .5-1.2 1.4-1.2 1.9 0 1.2 3 1.4 6 3 6 1.2 0 1.9-1.2 2.6-4 1-4 3-6 3-10 0-3.5-2-6-5-6-2.4 0-3.6 1.4-5 1.4S10.4 4 8 4z" fill="#7fd3c0" stroke="#0b3d5c" stroke-width="1.6"/></svg>
+        Northgate Dental
+      </a>
+      <nav aria-label="Main"><a href="#first-visit">First visit</a><a href="#prices">Prices</a><a href="#register">Register</a></nav>
+      <a class="btn" href="#register">Book a check-up</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <h1>A dentist who tells you the price first</h1>
+          <p>Private dental care on Northgate, Leeds. We explain every option and its cost before we start, and nothing is added later.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#register">Register as a new patient</a>
+            <a class="btn btn-soft" href="#prices">See our prices</a>
+          </div>
+          <ul class="checks">
+            <li>New patients seen within 7 days</li>
+            <li>Evening appointments until 19:30</li>
+            <li>Sedation for nervous patients</li>
+          </ul>
+        </div>
+        <div class="photo" role="img" aria-label="Bright treatment room at Northgate Dental"></div>
+      </div>
+    </section>
+
+    <section class="section" id="first-visit" aria-labelledby="visit-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="visit-title">Your first visit, step by step</h2>
+          <p>If you haven't seen a dentist in years, that's fine. Here's exactly what happens.</p>
+        </div>
+        <div class="journey" id="journey">
+          <svg aria-hidden="true" preserveAspectRatio="none" id="journey-svg">
+            <line class="track" x1="50%" y1="0" x2="50%" y2="100%" stroke-width="4" stroke-linecap="round"/>
+            <line class="ink" id="ink" x1="50%" y1="0" x2="50%" y2="100%" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <ol class="steps">
+            <li class="step"><span class="dot">1</span><h3>A chat, not a chair</h3><p>We start in a normal room. Tell us what's bothering you and anything that makes you nervous.</p><span class="time">10 minutes</span></li>
+            <li class="step"><span class="dot">2</span><h3>Full check-up</h3><p>Teeth, gums, mouth cancer screening and bite. We show you everything on a screen as we go.</p><span class="time">20 minutes</span></li>
+            <li class="step"><span class="dot">3</span><h3>X-rays if you need them</h3><p>Only if there's a reason. Low-dose digital, results in seconds.</p><span class="time">5 minutes</span></li>
+            <li class="step"><span class="dot">4</span><h3>A written plan with prices</h3><p>You leave with your options, what each one costs and how urgent it is. No pressure to decide that day.</p><span class="time">You keep the copy</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section prices" id="prices" aria-labelledby="prices-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="prices-title">Prices</h2>
+          <p>What you see is what you pay. Your plan will confirm the price before any treatment.</p>
+        </div>
+        <table class="price-table">
+          <thead><tr><th>Treatment</th><th>Price</th></tr></thead>
+          <tbody>
+            <tr><td>New patient exam<small>Includes X-rays if needed</small></td><td>£75</td></tr>
+            <tr><td>Check-up<small>Every 6 to 12 months</small></td><td>£55</td></tr>
+            <tr><td>Hygienist clean<small>30 minutes</small></td><td>£68</td></tr>
+            <tr><td>Emergency appointment<small>Same day, pain relief first</small></td><td>£90</td></tr>
+            <tr><td>White filling<small>Per tooth</small></td><td>from £120</td></tr>
+            <tr><td>Home whitening kit<small>Custom trays and gel</small></td><td>£295</td></tr>
+          </tbody>
+        </table>
+        <div class="plan">
+          <p><strong>Care plan: £16.50 a month</strong>Two check-ups, two hygienist cleans and 10% off treatment each year.</p>
+          <a class="btn btn-soft" href="#register">Join when you register</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section register" id="register" aria-labelledby="register-title">
+      <div class="wrap">
+        <div>
+          <div class="section-head">
+            <h2 id="register-title">Register as a new patient</h2>
+            <p>Fill this in and we'll call you within one working day to book your first visit.</p>
+          </div>
+          <div class="contact-card">
+            <p><strong>Northgate Dental</strong></p>
+            <p>22 Northgate, Leeds LS1 0XX</p>
+            <p>Mon–Fri 8:00–19:30, Sat 9:00–13:00</p>
+            <p><a href="tel:+441130000000">0113 000 0000</a></p>
+          </div>
+        </div>
+        <form id="register-form" novalidate>
+          <div class="row">
+            <div class="field"><label for="first">First name</label><input id="first" autocomplete="given-name" required><span class="error" data-for="first"></span></div>
+            <div class="field"><label for="last">Last name</label><input id="last" autocomplete="family-name" required><span class="error" data-for="last"></span></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel" required><span class="error" data-for="phone"></span></div>
+            <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required><span class="error" data-for="email"></span></div>
+          </div>
+          <div class="field">
+            <label for="reason">What do you need?</label>
+            <select id="reason" required>
+              <option value="">Choose one</option>
+              <option>Check-up</option><option>Toothache or broken tooth</option><option>Hygienist clean</option><option>Whitening</option><option>Something else</option>
+            </select>
+            <span class="error" data-for="reason"></span>
+          </div>
+          <div class="field">
+            <label for="notes">Anything we should know? <span class="hint">(optional)</span></label>
+            <textarea id="notes" rows="3" placeholder="For example: I'm nervous about injections"></textarea>
+          </div>
+          <button class="btn" type="submit">Send registration</button>
+          <p class="sent" role="status">Registration sent. We'll call you within one working day.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Northgate Dental, Leeds</span>
+      <span>Demo website: Northgate Dental is a fictional practice. Design &amp; build by AK.</span>
+    </div>
+  </footer>
+
+  <script>
+    // First visit: line fills and steps light up as you scroll
+    const journey = document.getElementById("journey");
+    const ink = document.getElementById("ink");
+    const steps = [...document.querySelectorAll(".step")];
+    function draw() {
+      const r = journey.getBoundingClientRect();
+      const mid = window.innerHeight * 0.6;
+      const p = Math.min(Math.max((mid - r.top) / r.height, 0), 1);
+      const len = r.height;
+      ink.style.strokeDasharray = len;
+      ink.style.strokeDashoffset = len * (1 - p);
+      steps.forEach((s) => s.classList.toggle("is-reached", s.getBoundingClientRect().top < mid));
+    }
+    let raf = false;
+    window.addEventListener("scroll", () => { if (!raf) { raf = true; requestAnimationFrame(() => { draw(); raf = false; }); } }, { passive: true });
+    window.addEventListener("resize", draw);
+    draw();
+
+    // New patient form (front-end demo)
+    const form = document.getElementById("register-form");
+    const rules = {
+      first: "Enter your first name.",
+      last: "Enter your last name.",
+      phone: "Enter a phone number so we can call you.",
+      email: "Enter an email like name@example.com.",
+      reason: "Choose what you need.",
+    };
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let ok = true;
+      for (const [id, text] of Object.entries(rules)) {
+        const el = document.getElementById(id);
+        const valid = el.checkValidity() && el.value.trim() !== "";
+        form.querySelector(`[data-for="${id}"]`).textContent = valid ? "" : text;
+        el.setAttribute("aria-invalid", !valid);
+        if (!valid) ok = false;
+      }
+      if (ok) form.classList.add("is-sent");
+    });
+  </script>
+</body>
+</html>
