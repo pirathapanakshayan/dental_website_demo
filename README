@@ -1,0 +1,31 @@
+# Northgate Dental: dentist website demo
+
+A demo website for a private dental practice in Leeds. Northgate Dental is a fictional practice, made for my web design portfolio.
+
+**Live demo:** https://pirathapanakshayan.github.io/dental_website_demo/
+
+## What it does
+
+- **First visit, step by step (scroll effect):** a line fills in as you scroll, and each step of the first appointment lights up when you reach it.
+- **Emergency bar:** same-day appointment phone number at the top of every page.
+- **Clear price list:** every treatment with its price, plus a monthly care plan.
+- **New patient form:** checks every required field and shows a confirmation message.
+- **Responsive and accessible:** works on phones, readable font sizes, keyboard focus styles, and reduced motion for people who turn animations off.
+
+## Built with
+
+HTML, CSS and plain JavaScript in one file. No frameworks, no build step.
+
+## Run it
+
+Open `index.html` in a browser, or use the VS Code **Live Server** extension.
+
+## Photos
+
+Without a photo, the hero shows a colour gradient. To add one, put a free image from Pexels or Unsplash at `images/clinic.jpg`.
+
+## Note
+
+The registration form is front-end only: it shows a success message but sends nothing. For a real practice, connect it to a form service such as Formspree.
+
+Design & build by AK.
